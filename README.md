@@ -237,7 +237,6 @@ kubectl logs -n app deployment/rag-app
 
 ## Documentation
 
-- [Migration implementation record](docs/fastify-migration-plan.md)
 - [Docker details](docker/README.md)
 - [Kubernetes configuration](k8s/README.md)
 

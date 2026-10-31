@@ -1,6 +1,6 @@
 # Kubernetes configuration
 
-The application connects to the PostgreSQL read/write Service at `postgresql-rw.pgsql.svc.cluster.local:5432`. For integration tests, export `RAG_TEST_ADMIN_URL` with a role that has `CREATEDB`; the test creates and deletes a unique temporary database.
+The application connects to the PostgreSQL read/write Service at `{service}.{namespace}.svc.cluster.local:5432`. For integration tests, export `RAG_TEST_ADMIN_URL` with a role that has `CREATEDB`; the test creates and deletes a unique temporary database.
 
 The local overlay exposes `https://rag.localhost` through the installed NGINX Ingress controller. Create the `rag-app-tls` TLS Secret in the `app` namespace with a certificate for `rag.localhost` before applying the overlay.
 
