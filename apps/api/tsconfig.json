@@ -1,0 +1,1 @@
+{"compilerOptions":{"composite":true,"outDir":"dist","rootDir":"src","target":"ES2022","module":"NodeNext","moduleResolution":"NodeNext","strict":true,"skipLibCheck":true,"types":["node"],"baseUrl":"../..","paths":{"@rag/domain":["packages/domain/src/index.ts"]}},"references":[{"path":"../../packages/domain"}],"include":["src"]}

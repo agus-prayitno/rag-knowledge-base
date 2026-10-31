@@ -1,0 +1,4 @@
+export function normalizeRelativePath(raw:string){let p=raw.replace(/\\/g,'/').trim().replace(/^([A-Za-z]:)?\/+/, '').replace(/\/+/g,'/');p=p.split('/').filter(x=>x&&x!=='.'&&x!=='..').join('/');if(!p)throw new Error('source_path normalizes to an empty path');return p}
+export const basename=(p:string)=>p.split('/').at(-1)!;
+export async function sha256Hex(input:string){const bytes=new TextEncoder().encode(input);const hash=await crypto.subtle.digest('SHA-256',bytes);return Array.from(new Uint8Array(hash),b=>b.toString(16).padStart(2,'0')).join('')}
+export class FileIdentityResolver { async resolve(path:string,name?:string){const source_path=normalizeRelativePath(path);return {file_id:await sha256Hex(source_path),source_path,source_name:name?.trim()||basename(source_path)}} async pointId(id:string,index:number,hash:string){return sha256Hex(`${id}:${index}:${hash}`)} }

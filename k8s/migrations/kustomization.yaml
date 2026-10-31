@@ -1,0 +1,7 @@
+namespace: app
+resources:
+  - job.yaml
+images:
+  - name: rag-app
+    newName: rag-app
+    newTag: local

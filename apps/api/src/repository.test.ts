@@ -1,0 +1,4 @@
+import { describe,expect,it } from 'vitest';
+import { MemoryRepository } from './repository.js';
+const point={point_id:'p',file_id:'f',chunk_index:0,content_hash:'h',text:'hello',embedding:[1,0],source_path:'docs/a.md',source_name:'a.md',tag:null,content_size:5};
+describe('memory repository',()=>{it('replaces, searches, tags and deletes documents',async()=>{const repo=new MemoryRepository();await repo.ready();await repo.replace([point]);expect((await repo.documents())[0].source_path).toBe('docs/a.md');expect((await repo.search([1,0],1))[0].similarity).toBe(1);expect(await repo.getTag('f')).toBeNull();await repo.tag('f','docs');expect(await repo.getTag('f')).toBe('docs');expect(await repo.delete('f')).toBe(1);expect(await repo.delete('f')).toBe(0);await expect(repo.tag('missing',null)).rejects.toThrow('No document found')})});

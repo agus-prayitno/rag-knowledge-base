@@ -1,0 +1,10 @@
+namespace: app
+resources:
+  - ../../base
+  - ingress.yaml
+patches:
+  - path: configmap-patch.yaml
+images:
+  - name: rag-app
+    newName: rag-app
+    newTag: local

@@ -1,0 +1,14 @@
+.env*
+node_modules
+**/node_modules
+coverage
+dist
+**/dist
+*.tsbuildinfo
+**/*.tsbuildinfo
+.git
+.gitignore
+.agents/**
+skills-lock.json
+AGENTS.md
+docker/**
